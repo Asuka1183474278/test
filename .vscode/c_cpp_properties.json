@@ -1,0 +1,63 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/media/asuka/LINUX2/CLionProjects/test/include",
+                "/media/asuka/LINUX2/CLionProjects/test/src",
+                "/media/asuka/LINUX2/CLionProjects/test/src/FWLIB/inc",
+                "/media/asuka/LINUX2/CLionProjects/test/src/HARDWARE/LED",
+                "/media/asuka/LINUX2/CLionProjects/test/src/HARDWARE/BEEP",
+                "/media/asuka/LINUX2/CLionProjects/test/src/HARDWARE/KEY",
+                "/media/asuka/LINUX2/CLionProjects/test/src/SYSTEM/delay",
+                "/media/asuka/LINUX2/CLionProjects/test/src/SYSTEM/sys",
+                "/media/asuka/LINUX2/CLionProjects/test/src/SYSTEM/usart",
+                "/home/asuka/.platformio/packages/framework-cmsis/CMSIS/Include",
+                "/home/asuka/.platformio/packages/framework-cmsis-stm32f4/Include",
+                "/home/asuka/.platformio/packages/tool-unity",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/media/asuka/LINUX2/CLionProjects/test/include",
+                    "/media/asuka/LINUX2/CLionProjects/test/src",
+                    "/media/asuka/LINUX2/CLionProjects/test/src/FWLIB/inc",
+                    "/media/asuka/LINUX2/CLionProjects/test/src/HARDWARE/LED",
+                    "/media/asuka/LINUX2/CLionProjects/test/src/HARDWARE/BEEP",
+                    "/media/asuka/LINUX2/CLionProjects/test/src/HARDWARE/KEY",
+                    "/media/asuka/LINUX2/CLionProjects/test/src/SYSTEM/delay",
+                    "/media/asuka/LINUX2/CLionProjects/test/src/SYSTEM/sys",
+                    "/media/asuka/LINUX2/CLionProjects/test/src/SYSTEM/usart",
+                    "/home/asuka/.platformio/packages/framework-cmsis/CMSIS/Include",
+                    "/home/asuka/.platformio/packages/framework-cmsis-stm32f4/Include",
+                    "/home/asuka/.platformio/packages/tool-unity",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=50100",
+                "STM32F4",
+                "STM32F407xx",
+                "STM32F40_41xxx",
+                "STM32F40_41xxx",
+                "USE_STDPERIPH_DRIVER",
+                "F_CPU=168000000L",
+                "BLACK_F407XX",
+                ""
+            ],
+            "compilerPath": "/home/asuka/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gcc",
+            "compilerArgs": [
+                "-mthumb",
+                "-mcpu=cortex-m4",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
