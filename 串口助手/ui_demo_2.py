@@ -68,26 +68,3 @@ class pg_ui(QMainWindow):
         plot_display.addWidget(self.pw)
         # self.addDockWidget(self.pw)
         self.show()
-
-    def update_data(self):
-        # self.count_x += 10
-        self.data_x.append(10*self.ptr)
-        # print(10*self.data_x)
-        self.data_y[self.ptr] = np.random.normal()
-        self.ptr += 1
-        if self.ptr >= self.data_y.shape[0]:
-            temp = self.data_y
-            self.data_y = np.empty(self.data_y.shape[0] * 2)
-            self.data_y[:temp.shape[0]] = temp
-        self.curve.setData(self.data_x[:self.ptr], self.data_y[:self.ptr])
-        self.curve.setPos(-10 * self.ptr, 0)
-        # if self.count_x % 1500 == 0:
-        #     self.data_x = []
-        #     self.data_y = []
-
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    test_ui = pg_ui()
-    sys.exit(app.exec_())
-

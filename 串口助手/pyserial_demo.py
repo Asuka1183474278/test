@@ -18,7 +18,7 @@ class pg_ui(QMainWindow):
     def __init__(self):
         super(pg_ui, self).__init__()
         self.InitUI()
-
+        self.ser = serial.Serial()
         self.ptr = 0
         self.timer = pg.QtCore.QTimer()
         self.timer.timeout.connect(self.update_data)
@@ -36,7 +36,7 @@ class pg_ui(QMainWindow):
 
         # 初始化控件
         self.pw = pg.PlotWidget()
-        self.pw.setRange(xRange=[-1000, 0])
+        self.pw.setRange(xRange=[0, 1000])
         self.curve = self.pw.plot()
         ########################################################
         plot_display = self.findChild(QHBoxLayout, 'pyplot')
@@ -47,9 +47,14 @@ class pg_ui(QMainWindow):
         self.show()
 
     def update_data(self):
-        self.ptr += 1
+        if self.ser.isOpen():
+            self.ptr += 1
+        else:
+            self.ptr = self.ptr
         self.curve.setData(data)
         self.curve.setPos(self.ptr * 2 , 0)
+
+
 
 
 
@@ -224,7 +229,7 @@ class Pyqt5_Serial(QtWidgets.QWidget, Ui_Form):
             global data
             global m
             if m < historylength:
-                data[m] = dat.decode('iso-8859-1')[0]
+                data[historylength - m - 1] = dat.decode('iso-8859-1')[0]
                 m = m + 1
             else:
                 data[:-1] = data[1:]
