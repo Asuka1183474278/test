@@ -10,11 +10,11 @@ set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_C_COMPILER_WORKS 1)
 set(CMAKE_CXX_COMPILER_WORKS 1)
 
-project("test" C CXX)
+project("测试" C CXX)
 include(CMakeListsPrivate.txt)
 
 
-include_directories("src/HARDWARE/KEY")
+include_directories("src/HARDWARE/TIMER")
 include_directories("src/HARDWARE/LED")
 include_directories("src/HARDWARE/ADC")
 include_directories("src/HARDWARE/TPAD")
