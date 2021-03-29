@@ -75,7 +75,7 @@ class Ui_Form(object):
         self.close_button = QtWidgets.QPushButton(self.formGroupBox) # 关闭串口按钮
         self.close_button.setObjectName("close_button")
         self.formLayout.setWidget(8, QtWidgets.QFormLayout.SpanningRole, self.close_button)
-        self.plot_button = QtWidgets.QPushButton(self.formGroupBox) # 波形绘制按钮
+        self.plot_button = QtWidgets.QCheckBox(self.formGroupBox) # 波形绘制按钮
         self.plot_button.setObjectName("plot_button")
         self.formLayout.setWidget(9, QtWidgets.QFormLayout.SpanningRole, self.plot_button)
         self.s1__lb_6 = QtWidgets.QLabel(self.formGroupBox)  # 停止位标签

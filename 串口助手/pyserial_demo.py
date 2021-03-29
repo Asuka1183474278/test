@@ -10,8 +10,8 @@ from ui_demo_2 import Ui_SecondWindow
 import numpy as np
 
 m = 0
-historylength = 1000
-data = np.zeros(1000)
+historylength = 500
+data = np.empty(500)
 
 
 class pg_ui(QMainWindow):
@@ -36,7 +36,7 @@ class pg_ui(QMainWindow):
 
         # 初始化控件
         self.pw = pg.PlotWidget()
-        self.pw.setRange(xRange=[0, 1000])
+        self.pw.setRange(xRange=[0, 500])
         self.curve = self.pw.plot()
         ########################################################
         plot_display = self.findChild(QHBoxLayout, 'pyplot')
@@ -86,6 +86,8 @@ class Pyqt5_Serial(QtWidgets.QWidget, Ui_Form):
         # 关闭串口按钮
         self.close_button.clicked.connect(self.port_close)
 
+        self.plot_button.stateChanged.connect(self.showDialog)
+
         # 发送数据按钮
         self.s3__send_button.clicked.connect(self.data_send)
 
@@ -105,7 +107,7 @@ class Pyqt5_Serial(QtWidgets.QWidget, Ui_Form):
         self.s2__clear_button.clicked.connect(self.receive_data_clear)
 
         # 波形绘制窗口
-        self.plot_button.clicked.connect(self.showDialog)
+
 
     # 串口检测
     def port_check(self):
@@ -229,11 +231,11 @@ class Pyqt5_Serial(QtWidgets.QWidget, Ui_Form):
             global data
             global m
             if m < historylength:
-                data[historylength - m - 1] = dat.decode('iso-8859-1')[0]
+                data[historylength - m - 1] = dat.decode('iso-8859-1')[0:7]
                 m = m + 1
             else:
                 data[:-1] = data[1:]
-                data[m-1] = dat.decode('iso-8859-1')[0]
+                data[m-1] = dat.decode('iso-8859-1')[0:7]
         else:
             pass
 
@@ -254,12 +256,15 @@ class Pyqt5_Serial(QtWidgets.QWidget, Ui_Form):
         self.s2__receive_text.setText("")
 
     def showDialog(self):
-        # 创建子窗口实例
-        dialog = pg_ui()
-        # 显示子窗口
-        dialog.show()
+        if self.plot_button.isChecked():
+            # 创建子窗口实例
+            self.dialog = pg_ui()
+            # 显示子窗口
+            self.dialog.show()
 
-        dialog.exec_()
+            self.dialog.exec_()
+        else:
+            self.dialog.close()
 
 
 if __name__ == '__main__':
